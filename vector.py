@@ -16,6 +16,7 @@ class Vector():
 
 
 
+	#new_vec = self + other 
 	def __add__(self, other):
 
 		if self.size != other.size:
@@ -26,6 +27,8 @@ class Vector():
 		new_vector.set_data(new_data)
 		return new_vector
 
+
+	#new_vec = self - other 
 	def __sub__(self, other):
 
 		if self.size != other.size:
@@ -36,6 +39,8 @@ class Vector():
 		new_vector.set_data(new_data)
 		return new_vector
 
+
+	#scalar value = self * other (dot product)
 	def __mul__(self, other):
 
 		if self.size != other.size:
@@ -44,11 +49,11 @@ class Vector():
 		dot_product = np.dot(np.array(self.data), np.array(other.data))
 		return dot_product
 
-
+	# allows the vector to be indexed
 	def __getitem__(self, index):
 		return self.data[index]
 
-
+	#allows the vector to be indexed
 	def __setitem__(self, index, value):
 		self.data[index] = value
 

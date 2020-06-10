@@ -21,6 +21,7 @@ class Matrix():
 		self.columns = len(column_vectors)
 
 
+	#NEW_MATRIX = SELF + OTHER
 	def __add__(self, other):
 
 		if self.rows != other.rows or self.columns != other.columns:
@@ -34,6 +35,8 @@ class Matrix():
 		new_matrix = Matrix(self.rows, self.columns, new_column_list)
 		return new_matrix
 
+
+	#NEW_MATRIX = SELF - OTHER
 	def __sub__(self, other):
 
 		if self.rows != other.rows or self.columns != other.columns:
@@ -48,6 +51,7 @@ class Matrix():
 		return new_matrix
 
 
+	#in new matrix, column 1 of self becomes row 1 of new matrix, etc
 	def transpose(self):
 
 		new_vec_list = []
