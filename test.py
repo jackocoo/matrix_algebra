@@ -30,6 +30,10 @@ def test():
 	mat_two = mat_one - mat_one
 	print(mat_two)
 
+	print(mat_one.transpose())
+
+	print(mat_one * mat_two)
+
 
 test()
 

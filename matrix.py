@@ -47,6 +47,44 @@ class Matrix():
 		new_matrix = Matrix(self.rows, self.columns, new_column_list)
 		return new_matrix
 
+
+	def transpose(self):
+
+		new_vec_list = []
+
+		for j in range(self.columns):
+			new_column = []
+			for i in range(self.rows):
+				new_column.append(self.data[i][j])
+			new_col_vec = Vector(len(new_column), new_column)
+			new_vec_list.append(new_col_vec)
+		new_matrix = Matrix(new_vec_list[0].size, len(new_vec_list), new_vec_list)
+		return new_matrix
+
+	
+	#applies multiplication as NEW_MAT = SELF * OTHER 
+	def __mul__(self, other):
+
+		if self.columns != other.rows:
+			print("shapes do not align for matrix multiplication")
+			return 
+
+		self_transpose = self.transpose()
+		new_column_list = []
+		#choose a column vector in other 
+		for col in other.data: 
+			new_column = []
+
+			for vec in self_transpose.data:
+				new_column.append(col * vec)
+
+			new_vec = Vector(len(new_column), new_column)
+			new_column_list.append(new_vec)
+
+		new_mat = Matrix(new_column_list[0].size, len(new_column_list), new_column_list)
+		return new_mat
+	
+
 	def __str__(self):
 
 		output = "matrix: \n["
